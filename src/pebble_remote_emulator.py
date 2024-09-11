@@ -282,9 +282,9 @@ properties_manager.Set(bluetooth_constants.BLUEZ_ADAPTER_INTERFACE, "Powered", d
 
 mainloop = GLib.MainLoop()
 
+agent_manager.RegisterAgent(PEBBLE_AGENT_PATH, "NoInputNoOutput")
 advertising_manager.RegisterAdvertisement(pebble_advertisement.get_path(), {}, reply_handler=register_ad_cb, error_handler=register_ad_error_cb)
 service_manager.RegisterApplication(pebble_application.get_path(), {}, reply_handler=register_app_cb, error_handler=register_app_error_cb)
-agent_manager.RegisterAgent(PEBBLE_AGENT_PATH, "NoInputNoOutput")
 
 agent_manager.RequestDefaultAgent(PEBBLE_AGENT_PATH)
 print('Pebble agent registered')
